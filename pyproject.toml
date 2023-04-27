@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "configurable_argparse_DavidRodriguezSoaresCUI"
-version = "0.0.1"
+version = "0.0.2"
 authors = [
   { name="DavidRodriguezSoaresCUI", email="fireblaze904+argparse@gmail.com" },
 ]

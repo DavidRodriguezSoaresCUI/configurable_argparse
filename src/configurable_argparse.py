@@ -53,7 +53,7 @@ class Argument:
     def is_present_in_namespace(self, namespace: argparse.Namespace) -> bool:
         """Checks whether group is represented in namespace"""
         for name in self.names:
-            if hasattr(namespace, name.lstrip("-")):
+            if getattr(namespace, name.lstrip("-"), None) is not None:
                 return True
         return False
 
@@ -170,8 +170,8 @@ def get_args(
         if arg.required:
             assertTrue(
                 arg.is_present_in_namespace(namespace),
-                "Error: one of the arguments {} is required. namespace={}",
-                arg,
+                "Error: argument {} is required. namespace={}",
+                arg.names,
                 namespace,
             )
 
